@@ -8,19 +8,12 @@
     <artifactId>httpproxy-apollo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-        <dependency>
-            <groupId>com.bbossgroups</groupId>
-            <artifactId>bboss-http</artifactId>
-            <version>5.7.8</version>
-             
-        </dependency>
-		 
+
         <dependency>
             <groupId>com.bbossgroups.plugins</groupId>
-            <artifactId>bboss-plugin-apollo</artifactId>
+            <artifactId>bboss-plugin-httpproxy-apollo</artifactId>
             <version>5.7.6</version>
         </dependency>
- 
 
         <dependency>
             <groupId>junit</groupId>

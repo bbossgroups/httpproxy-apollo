@@ -37,11 +37,13 @@ public class HttpRequestProxyApolloTest {
 		 * 1.服务健康检查
 		 * 2.服务负载均衡
 		 * 3.服务容灾故障恢复
-		 * 4.服务自动发现（zk，etcd，consul，eureka，db，其他第三方注册中心）
+		 * 4.服务自动发现（apollo，zk，etcd，consul，eureka，db，其他第三方注册中心）
 		 * 配置了两个连接池：default,report
+		 * 本示例演示基于apollo提供配置管理、服务自动发现以及灰度/生产，主备切换功能
 		 */
 
-		HttpRequestProxy.startHttpPoolsFromApollo("application","org.frameworkset.http.client.AddressConfigChangeListener");
+//		HttpRequestProxy.startHttpPoolsFromApollo("application","org.frameworkset.http.client.AddressConfigChangeListener");
+		HttpRequestProxy.startHttpPoolsFromApolloAwaredChange("application");
 	}
 	@Test
 	public void testGet(){
