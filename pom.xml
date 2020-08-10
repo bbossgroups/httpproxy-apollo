@@ -11,7 +11,7 @@
 
         <dependency>
             <groupId>com.bbossgroups.plugins</groupId>
-            <artifactId>bboss-plugin-httpproxy-apollo</artifactId>
+            <artifactId>bboss-plugin-apollo</artifactId>
             <version>5.7.6</version>
         </dependency>
 
