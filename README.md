@@ -1,61 +1,56 @@
-Bboss is a good elasticsearch Java rest client. It operates and accesses elasticsearch in a way similar to mybatis.
 
-# BBoss Environmental requirements
+# bboss httpproxy
+ bboss http  project.
+ 包含的功能有：
 
-JDK requirement: JDK 1.7+
+ http连接池
 
-Elasticsearch version requirements: 1.x,2.X,5.X,6. X,+
+ http服务调用组件-HttpRequestUtil
 
-Spring booter 1.x,2.x,+
-#基于bboss es booter demo 的maven工程
-本实例是一个bboss es booter的demo maven工程，可供各种类型项目集成参考
+ http负载均衡组件-HttpRequestProxy  使用参考文档https://esdoc.bbossgroups.com/#/httpproxy
+
+ 负载均衡组件特点：
+
+ 1.服务负载均衡（目前提供RoundRobin负载算法）
+
+ 2.服务健康检查
+
+ 3.服务容灾故障恢复
+
+ 4.服务自动发现（zk，etcd，consul，eureka，db，其他第三方注册中心）
+ 
+ 5.路由规则动态切换
+
+ 5.分组服务管理
+
+ 可以配置多组服务集群地址，每一组地址清单支持的配置格式：
+
+ http://ip:port
+
+ https://ip:port
+
+ ip:port（默认http协议）
+
+ 多个地址用逗号分隔
+
+ 6.服务安全认证（配置basic账号和口令）
+
+ 7.主备路由/异地灾备特色
+
+ 负载均衡器主备功能开发，如果主节点全部挂掉，请求转发到可用的备用节点，如果备用节点也挂了，就抛出异常，如果主节点恢复正常，那么请求重新发往主节点 
+
+# 开发文档
+
+https://esdoc.bbossgroups.com/#/httpproxy
+
+# 工程gradle构建运行说明：
+构建发布版本：gradle publish
 
 
-# 工程集成说明
-## 快速集成和应用 
+# License
 
-非spring boot项目：
+The BBoss Framework is released under version 2.0 of the [Apache License][].
 
-https://esdoc.bbossgroups.com/#/common-project-with-bboss
+[Apache License]: http://www.apache.org/licenses/LICENSE-2.0
 
-spring boot项目：
-
-https://esdoc.bbossgroups.com/#/spring-booter-with-bboss
-
-详细配置说明参考文档：
-
-https://esdoc.bbossgroups.com/#/development
-
-## demo功能说明：
-
-## 2.1 定义实体对象Demo
-
-## 2.2 编写测试功能对象-DocumentCRUD.java
-   创建dsl配置文件-esmapper/demo.xml
-   
-   删除和创建mapping
-   
-   单文档添加/修改/删除
-   
-   文档批量添加(elasticsearch不是实时flush记录，所以批量添加后如果立即查询可能查询不到刚添加的记录)
-   
-   文档批量修改(elasticsearch不是实时flush记录，所以批量修改后如果立即查询可能查询不到刚修改的效果)
-   
-   文档检索
-   
-   关键词高亮检索
-# 运行demo
-src/test/java目录下面提供提供很多可以直接运行的的junit测试用例 
-
-比如运行增删改查：
-
-elasticsearch 5.x,6.x
-
-org.bboss.elasticsearchtest.crud.DocumentCRUDTest
-
-elasticsearch 7.x
-
-org.bboss.elasticsearchtest.crud.DocumentCRUD7Test
-## 开发交流群
-166471282
-  
+# todo
