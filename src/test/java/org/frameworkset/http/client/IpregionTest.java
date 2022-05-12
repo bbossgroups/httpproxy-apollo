@@ -51,6 +51,15 @@ public class IpregionTest {
 		ipInfo = HttpRequestProxy.httpGetforObject("/collector/ipregion/queryIpInfo.api?ip=117.22.144.208",Map.class);
 		logger.info(SimpleStringUtil.object2json(ipInfo));
 
+		ipInfo = HttpRequestProxy.httpGetforObject("/collector/ipregion/queryIpInfo.api?ip=2001:da8:20c:a013:e191:4228:1284:fdab",Map.class);
+		logger.info(SimpleStringUtil.object2json(ipInfo));
+		ipInfo = HttpRequestProxy.httpGetforObject("/collector/ipregion/queryIpInfo.api?ip=2408:840d:9320:88da:b9b8:52ef:f877:2e4",Map.class);
+		logger.info(SimpleStringUtil.object2json(ipInfo));
+		ipInfo = HttpRequestProxy.httpGetforObject("/collector/ipregion/queryIpInfo.api?ip=2408:8409:2422:4ad0:b889:ae1a:b0e0:f044",Map.class);
+		logger.info(SimpleStringUtil.object2json(ipInfo));
+		ipInfo = HttpRequestProxy.httpGetforObject("/collector/ipregion/queryIpInfo.api?ip=2409:8910:c684:3a1e:e8c6:298:267d:7b7c",Map.class);
+		logger.info(SimpleStringUtil.object2json(ipInfo));
+
 	}
 
 }
