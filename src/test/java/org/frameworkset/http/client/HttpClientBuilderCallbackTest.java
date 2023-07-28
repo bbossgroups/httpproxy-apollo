@@ -47,13 +47,11 @@ public class HttpClientBuilderCallbackTest {
 		 */
 		final HttpRequestInterceptor interceptor = new HttpRequestInterceptor(){
 
-			@Override
 			public void process(HttpRequest request, HttpContext context) throws HttpException, IOException {
 
 			}
 		};
 		HttpClientBuilderCallback httpClientBuilderCallback = new HttpClientBuilderCallback() {
-			@Override
 			public HttpClientBuilder customizeHttpClient(HttpClientBuilder builder, ClientConfiguration clientConfiguration) {
 				return builder.addInterceptorFirst(interceptor);
 			}

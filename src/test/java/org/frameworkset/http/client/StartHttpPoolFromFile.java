@@ -57,10 +57,26 @@ public class StartHttpPoolFromFile {
         ExampleBean exampleBean = HttpRequestProxy.httpGetforObjectWithParams("/demoproject/examples/sayHelloBeanHttp.page",params,ExampleBean.class);
         logger.info(SimpleStringUtil.object2json(exampleBean));
         params.put("name","大河");//post请求中文字符无需编码处理
-        data = HttpRequestProxy.httpPostforString("/demoproject/examples/sayHelloBeanHttp.page",params);
+        data = HttpRequestProxy.httpPostforStringWithParams("/demoproject/examples/sayHelloBeanHttp.page",params);
         logger.info(data);
         exampleBean = HttpRequestProxy.httpPostForObject("/demoproject/examples/sayHelloBeanHttp.page",params,ExampleBean.class);
         logger.info(SimpleStringUtil.object2json(exampleBean));
+
+
+        data = HttpRequestProxy.httpGetforStringWithParams("/demoproject/examples/sayHelloBeanHttp.page",params);
+        logger.info(data);
+
+
+        exampleBean.setName(java.net.URLEncoder.encode("大河"));
+        exampleBean = HttpRequestProxy.httpGetforObjectWithParams("/demoproject/examples/sayHelloBeanHttp.page",exampleBean,ExampleBean.class);
+        logger.info(SimpleStringUtil.object2json(exampleBean));
+//        params.put("name","大河");//post请求中文字符无需编码处理
+        data = HttpRequestProxy.httpPostforStringWithParams("/demoproject/examples/sayHelloBeanHttp.page",exampleBean);
+        logger.info(data);
+        exampleBean = HttpRequestProxy.httpPostForObject("/demoproject/examples/sayHelloBeanHttp.page",exampleBean,ExampleBean.class);
+        logger.info(SimpleStringUtil.object2json(exampleBean));
+
+
 
     }
 }
