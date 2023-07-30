@@ -42,7 +42,22 @@ public class StartHttpPoolFromFile {
 		//启动连接池
 		HttpRequestUtil.startHttpPools("application-demo.properties");
 	}
+    @Test
+    public void testSendJsonBody(){
 
+
+
+        ExampleBean exampleBean = new ExampleBean();
+        exampleBean.setName("张三");
+        exampleBean.setAge(20);
+        exampleBean.setBirthDay(new Date());
+        CustomContainer<ExampleBean> customContainer = HttpRequestProxy.sendJsonBodyTypeObject("/demoproject/examples/sayHelloBodyHttp.page",
+                                                        exampleBean,CustomContainer.class,ExampleBean.class);
+        logger.info(SimpleStringUtil.object2json(customContainer));
+
+
+
+    }
     @Test
     public void testGet(){
         Map params = new LinkedHashMap();
