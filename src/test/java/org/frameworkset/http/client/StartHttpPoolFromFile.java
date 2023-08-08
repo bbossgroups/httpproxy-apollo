@@ -23,9 +23,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>Description: </p>
@@ -53,6 +51,18 @@ public class StartHttpPoolFromFile {
         exampleBean.setBirthDay(new Date());
         CustomContainer<ExampleBean> customContainer = HttpRequestProxy.sendJsonBodyTypeObject("/demoproject/examples/sayHelloBodyHttp.page",
                                                         exampleBean,CustomContainer.class,ExampleBean.class);
+        logger.info(SimpleStringUtil.object2json(customContainer));
+
+        List<ExampleBean> datas = new ArrayList<ExampleBean>();
+        datas.add(exampleBean);
+
+        exampleBean = new ExampleBean();
+        exampleBean.setName("王五");
+        exampleBean.setAge(32);
+        exampleBean.setBirthDay(new Date());
+        datas.add(exampleBean);
+        customContainer = HttpRequestProxy.sendJsonBodyTypeObject("/demoproject/examples/sayHelloBodyHttps.page",
+                datas,CustomContainer.class,ExampleBean.class);
         logger.info(SimpleStringUtil.object2json(customContainer));
 
 
@@ -90,6 +100,9 @@ public class StartHttpPoolFromFile {
         logger.info(data);
         exampleBean = HttpRequestProxy.httpPostForObject("/demoproject/examples/sayHelloBeanHttp.page",exampleBean,ExampleBean.class);
         logger.info(SimpleStringUtil.object2json(exampleBean));
+
+
+
 
 
 
