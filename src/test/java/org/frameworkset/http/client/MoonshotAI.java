@@ -124,6 +124,7 @@ public class MoonshotAI {
                 "   }","v1/chat/completions",invokeContext);
         logger.info(res);
 
+   
         res = HttpRequestProxy.sendJsonBody("{\n" +
                 "     \"model\": \"moonshot-v1-8k\",\n" +
                 "     \"messages\": [\n" +
