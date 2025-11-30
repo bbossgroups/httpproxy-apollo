@@ -16,17 +16,18 @@ package org.frameworkset.http.client;
  */
 
 import com.frameworkset.util.SimpleStringUtil;
-import org.apache.http.Consts;
-import org.apache.http.entity.ContentType;
 import org.frameworkset.spi.remote.http.HttpRequestProxy;
-import org.frameworkset.spi.remote.http.HttpRequestUtil;
 import org.frameworkset.spi.remote.http.proxy.InvokeContext;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * <p>Description: </p>
@@ -81,7 +82,7 @@ public class MoonshotAI {
         headers.put("Authorization","Bearer sk-NmYophVVNhAyq7Op25UNMKxQj3O1ht6i0hT8IZJnthNsnis2");
         InvokeContext invokeContext = new InvokeContext();
         invokeContext.setHeaders(headers);
-        invokeContext.setResponseCharset(Consts.UTF_8);
+        invokeContext.setResponseCharset(StandardCharsets.UTF_8);
         String res = HttpRequestProxy.sendJsonBody("{\n" +
                 "     \"model\": \"moonshot-v1-8k\",\n" +
                 "     \"messages\": [\n" +

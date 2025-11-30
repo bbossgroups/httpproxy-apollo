@@ -16,7 +16,6 @@ package org.frameworkset.http.client;
  */
 
 import com.frameworkset.util.SimpleStringUtil;
-import org.apache.http.Consts;
 import org.frameworkset.spi.remote.http.HttpRequestProxy;
 import org.frameworkset.spi.remote.http.proxy.InvokeContext;
 import org.junit.Before;
